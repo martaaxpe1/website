@@ -1,3 +1,8 @@
+## Workflow
+- Make changes in this folder, build (`npm run build`) and show Marta screenshots of every changed page (desktop and mobile) before anything leaves this computer.
+- Push to GitHub (github.com/martaaxpe1/website, branch main) only when Marta says so. Never commit drafts, _unpublished/ or Claude outputs/ (all git-ignored).
+- The site is not published yet: GitHub Pages is off and martaaxpe.com still points to Lovable.
+
 ## Content
 - Case study text and media are redacted for confidentiality. Never add content, images or videos beyond what is already published; design and layout changes only. Keep anything not cleared in _unpublished/, never in public/.
 
