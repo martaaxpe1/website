@@ -1,0 +1,27 @@
+# Roadmap
+
+- [x] Culligan case: remove the office photo "Twist, the commercial dispenser, in an office." from Phase 2.
+- [x] Culligan case: remove the Phase 2 flavour video the user selected on /case/1.
+- [x] Culligan case: the Overview is the cover card (photo, title, chips, paragraph) — no separate Overview section; the "It happened in three phases" passage sits in the card as a smaller second line.
+- [x] Phases line replaced by clickable Phase 1/2/3 chips in the cover card.
+- [x] Culligan case: Phase 1 paragraph beside the video, top-aligned.
+- [ ] Culligan case: trim the Approach and My Role sections if the user wants them cut down.
+- [x] Home page Culligan card: match its title and preview to the case.
+- [x] Case navigation: reset the scroll position when opening case pages.
+- [x] Culligan case: content restored exactly as published on Lovable (it is redacted for confidentiality, do not add content or media). Layout simplified: phase headings, touchscreen image beside its text, role as a list, Impact in the menu.
+- [x] Unpublished Culligan media moved out of public/ into _unpublished/ (git-ignored).
+- [x] Site prepared for GitHub Pages (CNAME, SPA routes, deploy workflow).
+- [ ] Add the Lovable-hosted video 07-phone-control.mp4 to public/cases/culligan/. Until then its poster shows.
+- [ ] Publish to GitHub Pages and point martaaxpe.com DNS at it.
+- [x] All cases on the Culligan layout; each case's text and media live in src/content/cases/<case>.ts.
+- [x] Unspoken Diary added as /case/4 (from martaaxpe-website-cases/unspoken-diary).
+- [x] YouTube added as /case/5 (from martaaxpe-website-cases/youtube). GIFs converted to small looping videos; the 19 MB read-out GIF left out, still image used.
+- [ ] YouTube: confidentiality review before publishing (client numbers, Salesforce screens, blueprints, read-out photo, quote, creator support status).
+- [ ] Vueling and ABN AMRO: fill the placeholders (overview, hero image, deliverables, Vueling role).
+- [x] Home cards all use logos (Unspoken logo taken from the diary screens).
+- [x] YouTube logo added to its home card.
+- [x] Culligan intro card: chips under the title, smaller paragraph font.
+- [x] Culligan intro card: scale title, paragraph and card height on wide screens.
+- [x] Case menu: add the missing Impact & Results stop, fold the solution diagram into Deliverables, drop stops with no section (Vueling/Tikkie Deliverables).
+- [x] Culligan Impact & Results: grow from three results to six.
+- [x] Results trimmed to the three confirmed headline figures under the cover; 16 PoCs and 100+ interviews live in Approach, One platform in the Platform section.

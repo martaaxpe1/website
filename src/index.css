@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+
+@layer base {
+  :root {
+    /* Light theme - light gray based */
+    --background: 220 10% 92%;
+    --foreground: 230 70% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 70% 17%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 230 70% 17%;
+
+    /* Coral/salmon as primary */
+    --primary: 5 100% 76%;
+    --primary-foreground: 230 70% 17%;
+
+    /* Deep navy as secondary */
+    --secondary: 230 70% 17%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 228 40% 85%;
+    --muted-foreground: 230 40% 35%;
+
+    /* Lavender accent */
+    --accent: 228 50% 82%;
+    --accent-foreground: 230 70% 17%;
+
+    --destructive: 4 60% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 228 30% 85%;
+    --input: 228 30% 85%;
+    --ring: 5 100% 76%;
+
+    --radius: 1.625rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 230 70% 17%;
+    --sidebar-primary: 5 100% 76%;
+    --sidebar-primary-foreground: 230 70% 17%;
+    --sidebar-accent: 228 50% 82%;
+    --sidebar-accent-foreground: 230 70% 17%;
+    --sidebar-border: 228 30% 85%;
+    --sidebar-ring: 5 100% 76%;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(220 10% 94%) 0%, hsl(228 40% 88%) 100%);
+    --accent-section: 230 70% 17%;
+    --accent-section-foreground: 0 0% 98%;
+    --chart-1: 5 100% 76%;
+    --chart-2: 228 50% 82%;
+    --chart-3: 230 70% 17%;
+    --chart-4: 220 10% 80%;
+    --chart-5: 230 40% 50%;
+    --sidebar: 0 0% 100%;
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 1px 1.5px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow: 0px 1px 3px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow-md: 0px 1px 4.5px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow-lg: 0px 1px 7.5px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
+  }
+
+  .dark {
+    /* Dark theme - deep navy based */
+    --background: 230 70% 17%;
+    --foreground: 220 10% 92%;
+
+    --card: 230 60% 22%;
+    --card-foreground: 220 10% 92%;
+
+    --popover: 230 55% 25%;
+    --popover-foreground: 220 10% 92%;
+
+    /* Coral as primary */
+    --primary: 5 100% 76%;
+    --primary-foreground: 230 70% 17%;
+
+    /* Lavender as secondary */
+    --secondary: 228 50% 82%;
+    --secondary-foreground: 230 70% 17%;
+
+    --muted: 230 50% 25%;
+    --muted-foreground: 228 30% 70%;
+
+    --accent: 4 60% 65%;
+    --accent-foreground: 230 70% 17%;
+
+    --destructive: 4 70% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 230 50% 30%;
+    --input: 230 50% 30%;
+    --ring: 5 100% 76%;
+
+    --sidebar-background: 230 60% 22%;
+    --sidebar-foreground: 220 10% 92%;
+    --sidebar-primary: 5 100% 76%;
+    --sidebar-primary-foreground: 230 70% 17%;
+    --sidebar-accent: 4 60% 65%;
+    --sidebar-accent-foreground: 230 70% 17%;
+    --sidebar-border: 230 50% 30%;
+    --sidebar-ring: 5 100% 76%;
+    --chart-1: 5 100% 76%;
+    --chart-2: 228 50% 75%;
+    --chart-3: 230 50% 50%;
+    --chart-4: 220 20% 60%;
+    --chart-5: 228 40% 65%;
+    --sidebar: 230 60% 22%;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 1px 1.5px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow: 0px 1px 3px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow-md: 0px 1px 4.5px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow-lg: 0px 1px 7.5px -2px hsla(0, 0%, 0%, 0.22);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    --font-serif: "Crimson Text", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
+    --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --radius: 1.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-20deg); }
+}
+
+.animate-wave {
+  animation: wave 1.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
