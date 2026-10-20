@@ -68,15 +68,26 @@ const Header = () => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  // Arriving from another page: scroll once the homepage has rendered.
+  useEffect(() => {
+    const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (!isHomePage || !target) return;
+    document.getElementById(target)?.scrollIntoView({ behavior: "smooth" });
+    navigate(location.pathname, { replace: true, state: null });
+  }, [location, isHomePage, navigate]);
+
+  // Escape closes the mobile menu
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false);
     if (!isHomePage) {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({
-          behavior: "smooth",
-        });
-      }, 100);
+      navigate("/", { state: { scrollTo: sectionId } });
     } else {
       document.getElementById(sectionId)?.scrollIntoView({
         behavior: "smooth",
@@ -101,7 +112,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container max-w-5xl mx-auto px-6 py-4 md:py-8">
-        <nav className="flex items-center justify-between">
+        <nav aria-label="Main" className="flex items-center justify-between">
           <button 
             onClick={() => {
               setMobileMenuOpen(false);
@@ -169,8 +180,10 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden p-3 -mr-3 text-foreground"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -180,7 +193,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border">
+        <div id="mobile-menu" className="md:hidden bg-background border-t border-border">
           <div className="container max-w-5xl mx-auto px-6 py-4">
             <button
               onClick={() => scrollToSection("work")}
@@ -209,7 +222,7 @@ const Header = () => {
             </Link>
             <a 
               href="mailto:martaaxpe@gmail.com" 
-              className="block py-3 text-lg font-medium text-primary"
+              className="block py-3 text-lg font-medium text-primary-text"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get in Touch

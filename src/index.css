@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,6 +41,9 @@ All colors MUST be HSL.
     --input: 228 30% 85%;
     --ring: 5 100% 76%;
 
+    /* Coral for text and thin marks on light surfaces: 5.1:1 or better on background, card and coral tints. */
+    --primary-text: 5 72% 40%;
+
     --radius: 1.625rem;
 
     --sidebar-background: 0 0% 100%;
@@ -67,8 +66,8 @@ All colors MUST be HSL.
     --chart-5: 230 40% 50%;
     --sidebar: 0 0% 100%;
     --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-sm: 0px 1px 1.5px -2px hsla(0, 0%, 0%, 0.22);
@@ -113,6 +112,9 @@ All colors MUST be HSL.
     --input: 230 50% 30%;
     --ring: 5 100% 76%;
 
+    /* On navy, the fill coral already clears 4.5:1. */
+    --primary-text: 5 100% 76%;
+
     --sidebar-background: 230 60% 22%;
     --sidebar-foreground: 220 10% 92%;
     --sidebar-primary: 5 100% 76%;
@@ -136,8 +138,6 @@ All colors MUST be HSL.
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
     --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    --font-serif: "Crimson Text", ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
-    --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --radius: 1.625rem;
   }
 }
@@ -169,8 +169,23 @@ All colors MUST be HSL.
   75% { transform: rotate(-20deg); }
 }
 
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
 .animate-wave {
-  animation: wave 1.5s ease-in-out infinite;
   transform-origin: 70% 70%;
   display: inline-block;
+}
+
+/* Looping motion only for visitors who have not asked for less of it. */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-wave {
+    animation: wave 1.5s ease-in-out infinite;
+  }
+
+  .animate-nudge {
+    animation: nudge 1.6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  }
 }

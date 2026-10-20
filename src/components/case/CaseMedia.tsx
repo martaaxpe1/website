@@ -126,7 +126,7 @@ const CaseList = ({ items, plain = false }: { items: LeadItem[]; plain?: boolean
 
 export const Placeholder = ({ label, media = false }: { label: string; media?: boolean }) => (
   <div
-    className={`flex items-center justify-center rounded-xl border-2 border-dashed border-primary/40 bg-primary/5 p-6 text-center text-sm font-medium text-primary ${
+    className={`flex items-center justify-center rounded-xl border-2 border-dashed border-primary/40 bg-primary/5 p-6 text-center text-sm font-medium text-primary-text ${
       media ? "min-h-48 md:min-h-64" : ""
     }`}
   >

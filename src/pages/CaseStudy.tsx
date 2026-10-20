@@ -137,12 +137,13 @@ const CaseStudyPage = () => {
       <div className="pt-16 flex max-w-7xl mx-auto">
         {/* Sidebar index */}
         <aside className="hidden lg:block w-56 shrink-0">
-          <nav className="sticky top-24 w-full px-6 mt-8">
+          <nav aria-label="Case sections" className="sticky top-24 w-full px-6 mt-8">
             <ul className="space-y-1">
               {navSections.map((section) => (
                 <li key={section.id}>
                   <button
                     onClick={() => scrollToSection(section.id)}
+                    aria-current={activeSection === section.id ? "true" : undefined}
                     className={`w-full text-left rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                       activeSection === section.id
                         ? "bg-primary text-primary-foreground"
@@ -194,12 +195,13 @@ const CaseStudyPage = () => {
           )}
 
           {/* Mobile navigation */}
-          <nav className="lg:hidden sticky top-16 z-40 bg-background/95 backdrop-blur-sm py-3 mb-8 -mx-4 sm:-mx-6 px-4 sm:px-6 border-b">
+          <nav aria-label="Case sections" className="lg:hidden sticky top-16 z-40 bg-background/95 backdrop-blur-sm py-3 mb-8 -mx-4 sm:-mx-6 px-4 sm:px-6 border-b">
             <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
               {navSections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
+                  aria-current={activeSection === section.id ? "true" : undefined}
                   className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-colors shrink-0 ${
                     activeSection === section.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
                   }`}
@@ -237,7 +239,7 @@ const CaseStudyPage = () => {
                 <div key={block.id} id={block.id} className="space-y-6 scroll-mt-32 border-t pt-10">
                   <div>
                     {block.eyebrow && (
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">{block.eyebrow}</p>
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary-text">{block.eyebrow}</p>
                     )}
                     <h3 className="text-xl sm:text-2xl font-bold font-display text-foreground">{block.title}</h3>
                   </div>
@@ -277,7 +279,7 @@ const CaseStudyPage = () => {
               {c.role ? <RoleText text={c.role} /> : <Placeholder label="My role: a short paragraph and three to five bullets" />}
               <div className="flex flex-wrap gap-2">
                 {c.tags.map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                  <span key={skill} className="px-4 py-2 bg-primary/10 text-primary-text rounded-full text-sm font-medium">
                     {skill}
                   </span>
                 ))}

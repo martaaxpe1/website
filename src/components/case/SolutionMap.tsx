@@ -17,7 +17,7 @@ const right: Node[] = [
 const Card = ({ n, side }: { n: Node; side: "l" | "r" }) => (
   <div data-solution-card={side} className="relative flex items-center">
     <div className="flex-1 rounded-xl border bg-card p-4 shadow-sm">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-1">{n.tag}</p>
+      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-text mb-1">{n.tag}</p>
       <p className="font-display font-bold text-foreground leading-snug">{n.title}</p>
       <p className="text-sm text-muted-foreground mt-1">{n.text}</p>
     </div>
@@ -59,7 +59,7 @@ export const SolutionMap = ({ deviceSrc }: { deviceSrc: string }) => {
 
   return (
   <figure className="mt-10">
-    <h3 className="mb-6 text-sm font-semibold text-primary">The shape of the solution</h3>
+    <h3 className="mb-6 text-sm font-semibold text-primary-text">The shape of the solution</h3>
     <div className="flex flex-col items-center mb-4">
       <div className="relative w-64 h-36 text-center">
         <svg viewBox="0 0 280 156" aria-hidden="true" className="absolute inset-0 h-full w-full fill-card stroke-border" strokeWidth="1.5">
@@ -67,7 +67,7 @@ export const SolutionMap = ({ deviceSrc }: { deviceSrc: string }) => {
         </svg>
         <div className="relative flex h-full flex-col items-center justify-center gap-1 pt-8 px-8">
           <img src={culliganLogo} alt="Culligan" loading="lazy" className="h-10 w-28 object-contain" />
-          <p className="text-[10px] uppercase tracking-[0.2em] text-primary">Central cloud platform</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-primary-text">Central cloud platform</p>
         </div>
       </div>
       <span className="flex items-end gap-3">
